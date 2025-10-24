@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR ANALYTICS REPORT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="title" id="heading">Employee Insights | HR Analytics Dashboard</h1>
+    <div class="container_btn">
+        <button id="load" style="background:blue; color:white;">Load Data</button>
+        <button id="cal" style="background:green; color:white;">Calculate Insights</button>
+        <button id="total" style="background:orange; color:black;">Show Total Expenditure</button>
+        <button id="export" style="background:red; color:black;">Export Data</button>
+    </div>
+    <div>
+        <nav>
+            <div class="container_nav" id="nav_li">
+                <div class="row_title">
+                    <div class="cell" id="id">ID</div>
+                    <div class="cell" id="name">Name</div>
+                    <div class="cell" id="dept">Department</div>
+                    <div class="cell" id="salary">Salary($)</div>
+                    <div class="cell" id="exp">Experience(Years)</div>
+                    <div class="cell" id="bonus">Anual Bonus($)</div>
+                </div>
+                <div class="row">
+                    <div class="cell">1</div>
+                    <div class="cell">Mahesh</div>
+                    <div class="cell">CSE</div>
+                    <div class="cell">10000</div>
+                    <div class="cell">2</div>
+                    <div class="cell">1000</div>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <div class="container_total_Salary" id="total_slry">
+        <p>Total Salary Expenditure :</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
