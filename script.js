@@ -151,3 +151,19 @@ function addcalData(){
         console.log("Error:"+ error);
     })
 };
+
+// total expenditure function
+function sumData(){
+ addcalData();
+ fetch('data.json')
+ .then((res)=>{return res.json();})
+ .then((result)=>{
+    const sortdata = result.filter((function(p){return p.experience>=3;}));
+       const sumfinal=  sortdata.reduce((sum, curr)=>{return sum+curr.salary},0);
+        console.log(sumfinal);
+        const p = document.createElement('p');
+        p.innerHTML=`Total Salary Expenditure : ${sumfinal}`;
+        total_salary.appendChild(p);
+ })
+
+};
