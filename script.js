@@ -24,82 +24,58 @@ export_btn.addEventListener("click",(e)=>{
     addexportData();
 })
 
-//API fetching
+// load function 
+function addloadData(){ 
+      while (container.children.length > 1) {
+        container.removeChild(container.lastChild);
+    }
+    
+    fetch("data.json").then((response)=>{
+        return response.json();
+    }).then((result)=>{
+        // return data = result;
+        const sortdata = result.map((person)=>{
+            return {id:   person.id, 
+                    name: person.name,
+                    department: person.department,
+                    salary: person.salary,
+                    experience: person.experience};
+        }).sort((a,b)=>b.salary-a.salary);
+        console.log(sortdata);
 
-function loadData(){
-        fetch("data.json")
-        .then((respose)=>{
-            return respose.json();
-        })
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((error)=>{
-            console.log("Error:",error);
-            alert("Error:",error);
-        })
-}
+        sortdata.forEach(p => {
+            const Rowdiv = document.createElement('div');
+            Rowdiv.className="row";
 
-
-function calData(){
-        fetch("data.json")
-        .then((respose)=>{
-            return respose.json();
-        })
-        .then((result)=>{
-           console.log(result);
-        })
-        .catch((error)=>{
-            console.log("Error:",error);
-            alert("Error:",error);
-        })
-}
-function totalData(){
-        fetch("data.json")
-        .then((respose)=>{
-            return respose.json();
-        })
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((error)=>{
-            console.log("Error:",error);
-            alert("Error:",error);
-        })
-}
-function exportData(){
-        fetch("data.json")
-        .then((respose)=>{
-            return respose.json();
-        })
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((error)=>{
-            console.log("Error:",error);
-            alert("Error:",error);
-        })
-}
-
-//appending the elements
-function appendelement(){
-       const div_row = document.createElement('div');
-    const div_cell = document.createElement('div');
-    div_row.className="row";
-    div_cell.className="cell";
-
-    container.appendChild(div_row);
-    div_row.appendChild(div_cell);
-    return div_cell;
-}
-
-//adding the data
-function  addloadData(){
-    const AllData = loadData();
-    AllData.forEach(element => {
-         const cell =appendelement();
-        cell.innerHTML=`${element.id} ${element.name} ${element.department} ${element.salary} ${element.experience}`.join("");
-    });
-
-
-}
+            // id cell
+            const idCell = document.createElement('div');
+            idCell.className="cell";
+            idCell.innerHTML=p.id;
+            Rowdiv.appendChild(idCell);
+             // name cell
+            const nameCell = document.createElement('div');
+            nameCell.className="cell";
+            nameCell.innerHTML=p.name;
+            Rowdiv.appendChild(nameCell);
+             // dept cell
+            const deptCell = document.createElement('div');
+            deptCell.className="cell";
+            deptCell.innerHTML=p.department;
+            Rowdiv.appendChild(deptCell);
+             // salary cell
+            const salaryCell = document.createElement('div');
+            salaryCell.className="cell";
+            salaryCell.innerHTML=p.salary;
+            Rowdiv.appendChild(salaryCell);
+             // exp cell
+            const expCell = document.createElement('div');
+            expCell.className="cell";
+            expCell.innerHTML=p.experience;
+            Rowdiv.appendChild(expCell);
+          
+            container.appendChild(Rowdiv);
+        });
+    }).catch((error)=>{
+        console.log("Error:"+ error);
+    })
+};
