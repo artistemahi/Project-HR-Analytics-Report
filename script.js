@@ -10,18 +10,22 @@ const export_btn= document.getElementById("export");
 // button functioning
 load_btn.addEventListener("click",(e)=>{
     e.preventDefault();
+    reset();
     addloadData();
 })
 calculate_btn.addEventListener("click",(e)=>{
     e.preventDefault();
+    reset();
     addcalData();
 })
 total_btn.addEventListener("click",(e)=>{
     e.preventDefault();
+    reset();
     sumData();
 })
 export_btn.addEventListener("click",(e)=>{
     e.preventDefault();
+    reset();
     addexportData();
 })
 
@@ -167,3 +171,7 @@ function sumData(){
  })
 
 };
+
+// reset function
+function reset(){
+}

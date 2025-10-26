@@ -47,4 +47,9 @@ button{
     border: 1px solid;
     text-align: center;
 }
-
+#total_slry{
+    margin-top: 20px;
+    font-weight: bolder;
+    font-size: larger;
+    text-align: center;
+}
